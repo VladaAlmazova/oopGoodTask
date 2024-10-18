@@ -27,6 +27,11 @@ public class MainTask2 {
      * на любом, заранее определённом транспорте
      * @see Person
      * @see Position
+     * @param transport конкретный объект одного из видов транспорта
      */
-    // TODO реализовать метод moveTo(...)
+    public void moveTo(Person person, Position destination, Transport transport){
+        person.walk(transport.getPosition());
+        transport.moveTo(destination);
+        person.walk(destination);
+    }
 }
