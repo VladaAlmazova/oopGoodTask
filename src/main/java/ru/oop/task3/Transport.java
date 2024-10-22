@@ -9,7 +9,9 @@ public interface Transport extends Positioned {
 
     /**
      * Передвижение до позиции вместе с человеком
-     * @param destination
+     *
+     * @param destination место назначения
+     * @param person      пассажир
      */
-    public void moveTo(Position destination);
+    public void moveTo(Position destination, Person person);
 }

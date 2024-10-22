@@ -7,7 +7,7 @@ import java.util.List;
  * То же самое, что и задача 2, но добраться нужно с пересадками<br>
  * Можно определить транспортные средства списком:<br>
  * {@code List.of(new Car(person), new Bus("43", person),
- *        new Bus("50", person));}
+ * new Bus("50", person));}
  * <ul>
  *   <li>Код не должен превышать 12 строк</li>
  *   <li>Запрещено реализовывать конструкторы и методы, кроме moveTo(Person person, Position destination)</li>
@@ -22,15 +22,16 @@ public class MainTask3 {
 
     /**
      * Переехать из текущего места в заданную точку
-     * с пересадками на указанные виды транспорта
-     * @param person
-     * @param destination
-     * @param typesTransport список транспорта
+     * с пересадками
+     *
+     * @param person человек, которому нужно добраться до destination
+     * @param destination место назначения
+     * @param transport список транспорта для пересадок
      */
-    public void moveTo(Person person, Position destination, List<Transport> typesTransport){
-        for(Transport transport:typesTransport){
-            person.walk(transport.getPosition());
-            transport.moveTo(destination);
+    public void moveTo(Person person, Position destination, List<Transport> transport) {
+        for (Transport transportUnit : transport) {
+            person.walk(transportUnit.getPosition());
+            transportUnit.moveTo(destination, person);
         }
         person.walk(destination);
     }
